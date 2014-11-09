@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["yusuke@junkpiano.me"]
   spec.summary       = %q{look up ip address information.}
   spec.description   = %q{This gem looks up ip address infomation. I use this api. http://ip-api.com/docs/api:json}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/yuchan/ipcountry"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
