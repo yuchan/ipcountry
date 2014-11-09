@@ -1,6 +1,7 @@
 # Ipcountry
 
-TODO: Write a gem description
+ruby gem for looking up ip address information.
+powered by http://ip-api.com/docs/api:json
 
 ## Installation
 
@@ -20,7 +21,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ require 'ipcountry'
+    $ info = Ipcountry::Info.new("ip address")
+    $ info.country # => "Country name"
 
 ## Contributing
 
