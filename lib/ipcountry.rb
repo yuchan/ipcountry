@@ -10,12 +10,7 @@ module Ipcountry
     attr_accessor :result
 
     def initialize(ip)
-      uri = URI.parse('http://ip-api.com/json/' + ip.to_s)
-      https = Net::HTTP.new(uri.host, uri.port)
-      res = https.start {
-        https.get(uri.request_uri)
-      }
-
+      res =  connect(ip)
       if res.code == '200'
         @result = JSON.parse(res.body)
       else
@@ -23,20 +18,44 @@ module Ipcountry
       end
     end
 
-    def country
-      @result["country"]
+    def status
+      @result['status']
     end
 
-    def countryCode
-      @result["countryCode"]
+    def message
+      @result['message']
+    end
+
+    def country
+      @result['country']
+    end
+
+    def countrycode
+      @result['countryCode']
     end
 
     def isp
-      @result["isp"]
+      @result['isp']
     end
 
     def organization
-      @result["org"]
+      @result['org']
+    end
+
+    def query
+      @result['query']
+    end
+
+    private
+
+    def connect(ip)
+      uri = URI.parse('http://ip-api.com/json/' + ip.to_s)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true if uri.scheme == 'https'
+      res = http.start do |h|
+        h.get(uri.request_uri)
+      end
+      res
     end
   end
 end

@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'ipcountry'
+
+info = Ipcountry::Info.new(ARGV[0])
+result = ''
+if info.status == 'success'
+  result = info.query + ':' + info.country
+else
+  result = info.query + ':' + info.message
+end
+
+p result
