@@ -2,12 +2,14 @@
 
 require 'ipcountry'
 
-info = Ipcountry::Info.new(ARGV[0])
-result = ''
-if info.status == 'success'
-  result = info.query + ':' + info.country
-else
-  result = info.query + ':' + info.message
-end
+ARGV.each{ |arg|
+    info = Ipcountry::Info.new(arg)
+    result = ''
+    if info.status == 'success'
+        result = info.query + ':' + info.country
+    else
+        result = info.query + ':' + info.message
+    end
+    p result
+}
 
-p result
