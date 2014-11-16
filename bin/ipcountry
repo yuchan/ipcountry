@@ -2,8 +2,8 @@
 
 require 'ipcountry'
 
-ARGV.each{ |arg|
-    info = Ipcountry::Info.new(arg)
+def send(ip)
+    info = Ipcountry::Info.new(ip)
     result = ''
     if info.status == 'success'
         result = info.query + ':' + info.country
@@ -11,5 +11,15 @@ ARGV.each{ |arg|
         result = info.query + ':' + info.message
     end
     p result
-}
+end
+
+
+if ARGV.length == 0
+    send("")
+else
+    ARGV.each{ |arg|
+        send(arg)
+    }
+end
+
 
