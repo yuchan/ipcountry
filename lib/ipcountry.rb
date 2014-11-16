@@ -5,7 +5,6 @@ require 'uri'
 require 'json'
 
 module Ipcountry
-  # Your code goes here...
   class Info
     attr_accessor :result
 

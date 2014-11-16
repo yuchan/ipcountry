@@ -10,7 +10,7 @@ def send(ip)
     else
         result = info.query + ':' + info.message
     end
-    p result
+    puts result
 end
 
 
