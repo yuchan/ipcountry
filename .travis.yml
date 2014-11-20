@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 2.0.0
+- 1.9.3
+- jruby-19mode
+- rbx-2
+deploy:
+  provider: rubygems
+  api_key:
+    secure: tCiw2E1SPuiwfGsPkmcW20gSdneZzH2cOmJq5vMsDoGk6T3R+4Fvuog/0QpXO0USLZrt/SWg46ZYcN7J1+b/GBHGcQE7lOYymn8W063xbRkAimA6+buEIUsx03MbRF5ALIs3rRsR70pegu8aqKXI8p56W1/g9vseKX3BPUltqC8=
+  gem: ipcountry
+  on:
+    tags: true
+    repo: yuchan/ipcountry
